@@ -3,6 +3,9 @@ import { EB_Garamond } from "next/font/google";
 import { PluginGrid } from "@/components/PluginGrid";
 import { getPluginData } from "@/actions/plugin-data";
 import { SearchInput } from "@/components/SearchInput";
+import { Suspense } from "react";
+import { Skeleton } from "@/components/ui/skeleton";
+import { SkeletonGrid } from "@/components/SkeletonGrid";
 
 const ebGaramond = EB_Garamond({
   subsets: ["latin"],
@@ -44,12 +47,35 @@ const blockEnabledPluginsSlugs = [
   'recipe-card-blocks-by-wpzoom'
 ]
 
-export default async function Home() {
+async function FeaturedPlugins() {
   const featuredPlugins = await getPluginData(featuredPluginsSlugs)
-  const betaPlugins = await getPluginData(betaPluginsSlugs)
-  const popularPlugins = await getPluginData(popularPluginsSlugs)
-  const blockEnabledPlugins = await getPluginData(blockEnabledPluginsSlugs)
+  return (
+      <PluginGrid plugins={featuredPlugins} />
+  )
+}
 
+async function BetaPlugins() {
+  const betaPlugins = await getPluginData(betaPluginsSlugs)
+    return (
+      <PluginGrid plugins={betaPlugins} />
+  )
+}
+
+async function PopularPlugins() {
+  const popularPlugins = await getPluginData(popularPluginsSlugs)
+  return (
+      <PluginGrid plugins={popularPlugins} />
+  )
+}
+
+async function BlockEnabledPlugins() {
+  const blockEnabledPlugins = await getPluginData(blockEnabledPluginsSlugs)
+  return (
+      <PluginGrid plugins={blockEnabledPlugins} />
+  )
+}
+
+export default function Home() {
   return (
     <div className="pb-12">
       <section className="bg-[#23282d] text-white px-[20px] md:px-[80px] pb-[clamp(30px,_5vw,_50px)]">
@@ -73,7 +99,9 @@ export default async function Home() {
             </div>
           </div>
 
-          <PluginGrid plugins={featuredPlugins} />
+          <Suspense fallback={<SkeletonGrid />}>
+            <FeaturedPlugins />
+          </Suspense>
         </div>
 
         <div>
@@ -83,7 +111,9 @@ export default async function Home() {
             </div>
           </div>
 
-          <PluginGrid plugins={betaPlugins} />
+          <Suspense fallback={<SkeletonGrid />}>
+            <BetaPlugins />
+          </Suspense>
         </div>
 
         <div>
@@ -93,7 +123,9 @@ export default async function Home() {
             </div>
           </div>
 
-          <PluginGrid plugins={popularPlugins} />
+          <Suspense fallback={<SkeletonGrid />}>
+            <PopularPlugins />
+          </Suspense>
         </div>
 
         <div>
@@ -103,7 +135,9 @@ export default async function Home() {
             </div>
           </div>
 
-          <PluginGrid plugins={blockEnabledPlugins} />
+          <Suspense fallback={<SkeletonGrid />}>
+            <BlockEnabledPlugins />
+          </Suspense>
         </div>
       </div>
     </div>
