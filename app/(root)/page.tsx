@@ -79,10 +79,11 @@ export default function Home() {
   return (
     <div className="pb-12">
       <section className="bg-[#23282d] text-white px-[20px] md:px-[80px] pb-[clamp(30px,_5vw,_50px)]">
-        <div className="max-w-[1160px] mx-auto pt-[clamp(30px,_5vw,_50px)] flex flex-col md:flex-row gap-[30px] md:items-end">
+        <div className="max-w-[1160px] mx-auto pt-[clamp(30px,_5vw,_50px)] flex flex-col md:flex-row gap-[30px] md:items-end mb-4">
           <h1 className={`${ebGaramond.className} text-[50px] font-normal text-white leading-[60px]`}>Plugins</h1>
           <p className="leading-[2.3]">Extend your WordPress experience! Browse over 60,000 free plugins.</p>
         </div>
+        <span>EXPERIMENTAL</span>
       </section>
 
       <section className="px-[20px] md:px-[80px] py-6">

@@ -14,6 +14,8 @@ export const Header = () => {
                         <span className="text-[14px]">Plugin Directory</span>
                     </Link>
                 </div>
+
+                <span>EXPERIMENTAL</span>
             </div>
         </header>
     )
