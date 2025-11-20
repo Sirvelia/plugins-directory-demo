@@ -22,6 +22,8 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.className} antialiased min-h-screen bg-white`}>
         {children}
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
