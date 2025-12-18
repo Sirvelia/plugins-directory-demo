@@ -2,10 +2,11 @@ import { SearchInput } from "../SearchInput";
 import { Refine } from "./Refine";
 import { Sort } from "./Sort";
 import { Compare } from "./Compare";
+import { AIOverview } from "./AIOverview";
 
-export const SearchActions = ({ results }: { results?: SearchResults }) => {
+export const SearchActions = ({ results, uuid }: { results?: SearchResults, uuid?: string }) => {
     return (
-        <section className="px-[20px] md:px-[80px] py-6">
+        <section className="px-[20px] md:px-[80px] py-6 space-y-6">
             <div className="max-w-[1160px] mx-auto flex flex-col justify-between md:items-center md:flex-row gap-[30px]">
                 <div className="flex items-center gap-4">
                     <SearchInput results={results} />
@@ -21,6 +22,8 @@ export const SearchActions = ({ results }: { results?: SearchResults }) => {
                     <Sort />
                 </div>
             </div>
+
+            {(uuid && results?.hyde) && <AIOverview uuid={uuid} />}
         </section>
     )
 }

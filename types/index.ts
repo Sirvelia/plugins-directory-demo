@@ -23,6 +23,7 @@ interface SearchResults {
     search: string;
     results: WordPressPlugin[];
     date: string;
+    hyde?: string;
 }
 
 interface WordPressPlugin {
