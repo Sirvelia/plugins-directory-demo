@@ -9,7 +9,7 @@ import { SinglePluginTabsRelated } from './Related'
 
 export const SinglePluginTabs = ({ pluginData }: { pluginData: WordPressPlugin }) => {
     return (
-        <Tabs defaultValue="ai_insights" className="w-full">
+        <Tabs defaultValue="ai_insights" className="">
             <TabsList>
                 <TabsTrigger value="ai_insights">AI Insights</TabsTrigger>
                 <TabsTrigger value="description">Description</TabsTrigger>
