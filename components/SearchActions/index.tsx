@@ -23,7 +23,11 @@ export const SearchActions = ({ results, uuid }: { results?: SearchResults, uuid
                 </div>
             </div>
 
-            {(uuid && results?.hyde) && <AIOverview uuid={uuid} />}
+            {(uuid && results?.hyde) && (
+                <div className="max-w-[1160px] mx-auto">
+                    <AIOverview uuid={uuid} />
+                </div>
+            )}
         </section>
     )
 }

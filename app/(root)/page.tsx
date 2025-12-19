@@ -50,28 +50,28 @@ const blockEnabledPluginsSlugs = [
 async function FeaturedPlugins() {
   const featuredPlugins = await getPluginData(featuredPluginsSlugs)
   return (
-      <PluginGrid plugins={featuredPlugins} />
+    <PluginGrid plugins={featuredPlugins} />
   )
 }
 
 async function BetaPlugins() {
   const betaPlugins = await getPluginData(betaPluginsSlugs)
-    return (
-      <PluginGrid plugins={betaPlugins} />
+  return (
+    <PluginGrid plugins={betaPlugins} />
   )
 }
 
 async function PopularPlugins() {
   const popularPlugins = await getPluginData(popularPluginsSlugs)
   return (
-      <PluginGrid plugins={popularPlugins} />
+    <PluginGrid plugins={popularPlugins} />
   )
 }
 
 async function BlockEnabledPlugins() {
   const blockEnabledPlugins = await getPluginData(blockEnabledPluginsSlugs)
   return (
-      <PluginGrid plugins={blockEnabledPlugins} />
+    <PluginGrid plugins={blockEnabledPlugins} />
   )
 }
 
@@ -83,7 +83,10 @@ export default function Home() {
           <h1 className={`${ebGaramond.className} text-[50px] font-normal text-white leading-[60px]`}>Plugins</h1>
           <p className="leading-[2.3]">Extend your WordPress experience! Browse over 60,000 free plugins.</p>
         </div>
-        <span>EXPERIMENTAL</span>
+
+        <div className="max-w-[1160px] mx-auto">
+          <span>EXPERIMENTAL</span>
+        </div>
       </section>
 
       <section className="px-[20px] md:px-[80px] py-6">

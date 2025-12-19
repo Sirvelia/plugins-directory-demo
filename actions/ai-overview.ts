@@ -10,7 +10,7 @@ export async function getAIOverview({ uuid }: { uuid: string }): Promise<string>
     const hyde = results.hyde || '';
 
     // Recommended: Use a fast model like gpt-4o-mini for low latency on UI overviews
-    const model = openai('gpt-4o-mini');
+    const model = openai('gpt-4.1');
 
     const response = await generateText({
         model,
